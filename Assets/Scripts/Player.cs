@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 	[Header("Weapon")]
 	public Transform BarrelTransform = null;
 	public GameObject ProjectilePrefab = null;
-	public float ProjectileForce = 50.0f;
+	public ModifierBase CurrentModifier = null;
 	
 	void Start()
 	{
@@ -56,9 +56,11 @@ public class Player : MonoBehaviour
 			if (ProjectilePrefab)
 			{
 				GameObject projectileGob = Instantiate(ProjectilePrefab, BarrelTransform.position, Quaternion.identity);
-				Rigidbody projectileRB = projectileGob.GetComponent<Rigidbody>();
-				
-				projectileRB.AddForce(transform.forward * ProjectileForce);
+				Projectile projectile = projectileGob.GetComponent<Projectile>();
+				if (projectile)
+				{
+					projectile.Launch(CurrentModifier, transform.forward);
+				}
 			}
 		}
 	}
