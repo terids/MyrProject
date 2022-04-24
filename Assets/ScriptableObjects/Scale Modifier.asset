@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8314a5835cc10cd42a15b2fa323cd5ec, type: 3}
   m_Name: Scale Modifier
   m_EditorClassIdentifier: 
-  ProjectileColour: {r: 1, g: 0, b: 1, a: 1}
+  ProjectileColour: {r: 0, g: 0.55145025, b: 1, a: 1}
   ProjectileLifetime: 5
-  ScaleValue: 0
+  ProjectileForce: 10
+  ScaleValue: 5

@@ -13,10 +13,10 @@ public class Projectile : MonoBehaviour
 		Modifier = modifier;
 
 		// Change projectile colour based on currently active skill
-		Material m = GetComponent<Material>();
-		if (m)
+		Renderer r = GetComponentInChildren<Renderer>();
+		if (r)
 		{
-			m.color = modifier.ProjectileColour;
+			r.material.color = modifier.ProjectileColour;
 		}
 
 		Rigidbody rb = GetComponent<Rigidbody>();
