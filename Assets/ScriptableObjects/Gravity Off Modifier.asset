@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectileColour: {r: 1, g: 0.9424448, b: 0, a: 1}
   ProjectileLifetime: 5
-  ProjectileForce: 20
+  ProjectileForce: 10
   GravityValue: 0
