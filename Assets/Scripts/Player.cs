@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,10 @@ public class Player : MonoBehaviour
 	[Header("Weapon")]
 	public Transform BarrelTransform = null;
 	public GameObject ProjectilePrefab = null;
-	public ModifierBase CurrentModifier = null;
-	
+	public SkillSet CurrentSkillSet = null;
+
+	private int CurrentSkillIndex = 0;
+
 	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
@@ -50,6 +53,19 @@ public class Player : MonoBehaviour
 		transform.Rotate(-pitch, 0.0f, 0.0f, Space.Self);
 
 
+		// -- Skill selection
+		if (Input.inputString != "")
+		{
+			int num;
+			bool isNumber = Int32.TryParse(Input.inputString, out num);
+
+			if (isNumber && num >= 0 && num < 10)
+			{
+				CurrentSkillIndex = num;
+			}
+		}
+
+
 		// -- Fire weapon
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -57,9 +73,12 @@ public class Player : MonoBehaviour
 			{
 				GameObject projectileGob = Instantiate(ProjectilePrefab, BarrelTransform.position, Quaternion.identity);
 				Projectile projectile = projectileGob.GetComponent<Projectile>();
-				if (projectile)
+
+				bool skillAvailable = CurrentSkillSet && CurrentSkillSet.Skills.Length > CurrentSkillIndex;
+
+				if (projectile && skillAvailable)
 				{
-					projectile.Launch(CurrentModifier, transform.forward);
+					projectile.Launch(CurrentSkillSet.Skills[CurrentSkillIndex], transform.forward);
 				}
 			}
 		}

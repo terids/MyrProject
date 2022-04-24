@@ -41,6 +41,11 @@ public class Projectile : MonoBehaviour
 
 	public void OnCollisionEnter(Collision collision)
 	{
+		if (collision.gameObject.CompareTag("NoSkillModify") == true)
+		{
+			return;
+		}
+		
 		if (Modifier)
 		{
 			Modifier.Apply(collision.gameObject);
