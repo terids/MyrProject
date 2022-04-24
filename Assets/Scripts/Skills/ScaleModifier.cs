@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Scale an objects transform
 [CreateAssetMenu(fileName = "Scale Modifier", menuName = "SkillModifiers/ScaleModifierSO")]
 public class ScaleModifier : ModifierBase
 {

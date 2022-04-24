@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Default modification skill, acts as normal projectile
 [CreateAssetMenu(fileName = "Default Modifier", menuName = "SkillModifiers/DefaultModifierSO")]
 public class ModifierBase : ScriptableObject
 {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Set gravity state for object
 [CreateAssetMenu(fileName = "Gravity Modifier", menuName = "SkillModifiers/GravityModifierSO")]
 public class GravityModifier : ModifierBase
 {

@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4cdf15f2a89094f85afbc89fd9ec88, type: 3}
-  m_Name: Gravity On Modifier
+  m_Script: {fileID: 11500000, guid: c906932827336004ab24f92f95c7e464, type: 3}
+  m_Name: Red Modifier
   m_EditorClassIdentifier: 
-  ProjectileColour: {r: 0, g: 1, b: 0.052975178, a: 1}
+  ProjectileColour: {r: 1, g: 0, b: 0, a: 1}
   ProjectileLifetime: 5
-  ProjectileForce: 80
-  GravityValue: 1
+  ProjectileForce: 20
