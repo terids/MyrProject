@@ -11,7 +11,8 @@ public class ScaleModifier : ModifierBase
 	public override void Apply(GameObject gob)
 	{
 		// We don't want to fall through the floor, so scale up from the bottom
-		Transform t = gob.transform.root;
+
+		Transform t = gob.transform.root; // Make sure to only modify the root object
 		
 		Vector3 currentPos = t.position;
 		float distToGround = currentPos.y;

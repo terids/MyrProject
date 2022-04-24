@@ -16,11 +16,19 @@ public class Player : MonoBehaviour
 	public GameObject ProjectilePrefab = null;
 	public SkillSet CurrentSkillSet = null;
 
+	[Header("Misc")]
+	public SkillUI SkillUI;
+	
 	private int CurrentSkillIndex = 0;
 
 	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
+
+		if (SkillUI)
+		{
+			SkillUI.SelectSkill(CurrentSkillIndex);
+		}
 	}
 
 	void Update()
@@ -62,6 +70,11 @@ public class Player : MonoBehaviour
 			if (isNumber && num >= 0 && num < 10)
 			{
 				CurrentSkillIndex = num;
+
+				if (SkillUI)
+				{
+					SkillUI.SelectSkill(CurrentSkillIndex);
+				}
 			}
 		}
 
