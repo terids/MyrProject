@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
+	[Header("Movement")]
 	public float MoveSpeed = 5.0f;
 	public float HorizontalRotateSpeed = 2.0f;
 	public float VerticalRotateSpeed = 2.0f;
+
+	[Header("Weapon")]
+	public Transform BarrelTransform = null;
+	public GameObject ProjectilePrefab = null;
+	public float ProjectileForce = 50.0f;
 	
 	void Start()
 	{
-		
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update()
@@ -41,5 +48,18 @@ public class Player : MonoBehaviour
 
 		transform.Rotate(0.0f, yaw, 0.0f, Space.World);
 		transform.Rotate(-pitch, 0.0f, 0.0f, Space.Self);
+
+
+		// -- Fire weapon
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (ProjectilePrefab)
+			{
+				GameObject projectileGob = Instantiate(ProjectilePrefab, BarrelTransform.position, Quaternion.identity);
+				Rigidbody projectileRB = projectileGob.GetComponent<Rigidbody>();
+				
+				projectileRB.AddForce(transform.forward * ProjectileForce);
+			}
+		}
 	}
 }

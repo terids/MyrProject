@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086069735969654747}
   m_Layer: 0
-  m_Name: Barrell
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,6 +391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff79f01916388f348b4aed331c2fb7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 10
   HorizontalRotateSpeed: 2
   VerticalRotateSpeed: 2
+  BarrelTransform: {fileID: 4086069735969654747}
+  ProjectilePrefab: {fileID: 3907560821424645729, guid: 5b50d8ea02900f84b89d32f639187ba0, type: 3}
+  ProjectileForce: 150
